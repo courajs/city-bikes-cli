@@ -5,12 +5,15 @@ bike-sharing stations.
 
 ## Usage
 ```
-$ bikes cities
-> sdflkj
+$ bikes cities boston
+> 
 $ BIKE_CITY='boston'
 $ bike stations
 > lkjsdf
+$ bike station seaport
+> lskdf
 ```
+
 commands:
 - list cities
 - get all stations in a city

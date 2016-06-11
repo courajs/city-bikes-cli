@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha"
   },
+  "bin": {
+    "bikes": "cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/courajs/city-bikes-cli.git"
@@ -22,6 +25,7 @@
     "mocha": "^2.5.3"
   },
   "dependencies": {
+    "configstore": "^2.0.0",
     "meow": "^3.7.0",
     "request": "^2.72.0"
   }

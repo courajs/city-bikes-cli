@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/courajs/city-bikes-cli/issues"
   },
-  "homepage": "https://github.com/courajs/city-bikes-cli#readme"
+  "homepage": "https://github.com/courajs/city-bikes-cli#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "meow": "^3.7.0",
+    "request": "^2.72.0"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "city-bikes-cli",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Use the citybik.es API to find available bikes and open slots for your city's bikesharing system",
   "main": "cli.js",
   "scripts": {

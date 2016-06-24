@@ -2,18 +2,18 @@
 'use strict';
 
 const meow = require('meow');
-const getStationData = require('./lib/get-station-data');
 const commands = require('./lib/commands')
 
+const pkg = require('./package.json');
+
 let cli = meow(`
-Usage: bikes                          # Display available bikes/slots for your default station
-   or: bikes <station-id>             # Display available bikes/slots for station by id
-   or: bikes <station-alias>          # Display available bikes/slots for station by custom name
-   or: bikes set-city <service-id>    # Set your default city
-   or: bikes set <param> <station-id>
-   or: bikes get <param>
------------------------------------
-  <param> can be work, home, mom, coffee or whatever string
+  Usage: bikes                          # Display available bikes/slots for your default station
+     or: bikes set-city <service-id>    # Set your default city
+     or: bikes <station-id>             # Display available bikes/slots for station by id
+     or: bikes get <station-alias>      # Display available bikes/slots for station by custom name
+     or: bikes set <station-alias> <station-id> # Set station-alias linked to a specific station-id
+  -----------------------------------
+    <station-alias> can be work, home, mom, coffee or whatever string
 
 `, {
   alias: {

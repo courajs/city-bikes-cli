@@ -1,6 +1,6 @@
 {
   "name": "city-bikes-cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Use the citybik.es API to find available bikes and open slots for your city's bikesharing system",
   "main": "cli.js",
   "scripts": {
@@ -13,8 +13,17 @@
     "type": "git",
     "url": "git+https://github.com/courajs/city-bikes-cli.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "bike-sharing",
+    "bikesharing",
+    "city-bike",
+    "bikes",
+    "bike",
+    "cli",
+    "cities",
+    "sharing"
+  ],
+  "author": "Courajs (github.com/courajs)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/courajs/city-bikes-cli/issues"

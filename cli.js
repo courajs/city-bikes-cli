@@ -1,41 +1,26 @@
 #!/usr/bin/env node
 'use strict';
 
-const Configstore = require('configstore');
 const meow = require('meow');
-const pkg = require('./package.json');
-const cityIsValid = require('./lib/city-is-valid');
+const commands = require('./lib/commands')
 
-const conf = new Configstore(pkg.name);
+const pkg = require('./package.json');
 
 let cli = meow(`
-    Usage: bikes                          # Display available bikes/slots for your default station
-       or: bikes <station-id>             # Display available bikes/slots for station by id
-       or: bikes <station-alias>          # Display available bikes/slots for station by custom name
-       or: bikes set-city <service-id>    # Set your default city
-`);
+  Usage: bikes                          # Display available bikes/slots for your default station
+     or: bikes set-city <service-id>    # Set your default city
+     or: bikes <station-id>             # Display available bikes/slots for station by id
+     or: bikes get <station-alias>      # Display available bikes/slots for station by custom name
+     or: bikes set <station-alias> <station-id> # Set station-alias linked to a specific station-id
+  -----------------------------------
+    <station-alias> can be work, home, mom, coffee or whatever string
 
-let commands = {
-  'set-city': function(args) {
-    let serviceId = args[0];
-    cityIsValid(serviceId)
-      .then(function(isValid) {
-        if (isValid) {
-          conf.set('city', serviceId);
-          console.log(`Your city has been set to ${serviceId}!`);
-        } else {
-          console.log(`Sorry that doesn't seem to be a valid serviceId.`)
-        }
-      })
-      .catch(function(err) {
-        console.log(`Sorry, there was some error.`)
-      });
-  },
-  'station': function(stationIdOrAlias) {
-    stationIdOrAlias = stationIdOrAlias || 'default';
-    console.log("getting info for station", stationIdOrAlias);
+`, {
+  alias: {
+    'v': 'version',
+    'h': 'help'
   }
-};
+});
 
 
 if (cli.input[0] in commands) {
@@ -43,10 +28,3 @@ if (cli.input[0] in commands) {
 } else {
   commands.station(cli.input[0]);
 }
-
-// let city = conf.get('city');
-// if ( !city ) {
-//   console.log('Welcome! Please use `bikes set-city <system-id>` to set your city');
-//  } else {
-//   console.log('your city is configured:', city);
-// }
